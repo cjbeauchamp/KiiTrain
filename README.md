@@ -26,3 +26,10 @@ You can get the image directly from Chris, or if you are using Raspbian or anoth
 	$ nvm use v6.11.1
 
 
+# Project Setup
+
+1. Create a config file from the template. The actual config file is ignored by git for security reasons.
+
+	$ mv config.template.sh config.sh
+	
+2. Edit the `config.sh` file by inserting your application's values
