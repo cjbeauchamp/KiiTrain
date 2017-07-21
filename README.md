@@ -36,7 +36,7 @@ You can get the image directly from Chris, or if you are using Raspbian or anoth
 
 		$ cp config.template.sh config.sh
 
-2. Create a Kii Cloud application (recommend Singapore https://api-sg.kii.com)
+2. Create a Kii Cloud application with Android (recommend Singapore https://api-sg.kii.com)
 
 3. Edit the `config.sh` file by inserting your application's values
 
@@ -132,6 +132,12 @@ You can get the image directly from Chris, or if you are using Raspbian or anoth
 	- Add eventType=='sensor' to `watch.js`
 
 # Android App
+
+1. Download App from portal
+
+2. Import project into Android Studio
+
+3. Create device (Nexus 5x with play store)
 
 # Web Dashboard
 
