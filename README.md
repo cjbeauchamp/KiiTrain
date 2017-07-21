@@ -34,7 +34,7 @@ You can get the image directly from Chris, or if you are using Raspbian or anoth
 
 1. Create a config file from the template. The actual config file is ignored by git for security reasons.
 
-		$ mv config.template.sh config.sh
+		$ cp config.template.sh config.sh
 
 2. Create a Kii Cloud application (recommend Singapore https://api-sg.kii.com)
 
@@ -47,7 +47,6 @@ You can get the image directly from Chris, or if you are using Raspbian or anoth
 6. Create several sensors owned by the owners group in Thing-IF onboarding console
 
 	- Door Open Sensors
-	- Ambient Light Sensors
 	- Seat Pressure Sensors
 
 7. Create our controller device using the same method.
@@ -59,29 +58,83 @@ You can get the image directly from Chris, or if you are using Raspbian or anoth
 		$ cd ./linux
 		$ npm install kii-cloud-sdk --save
 
-2. Initialize in `main.js`
+2. Initialize in `main.js` and `kii.config.js`
 
-		var kii = require('kii-cloud-sdk').create();
+		// main.js
+		global.kii = require('kii-cloud-sdk').create();
+		require('./kii.config.js');
+
+		// kii.config.js
 		kii.Kii.initializeWithSite('__appid__', '__appkey__', kii.KiiSite.US);
 
 3. Authenticate the [thing](https://docs.kii.com/en/guides/thingifsdk/thingsdk/thing-javascript)
 
 4. Listen for sensor data (file reader)
 
+	- Add `watch.js` to main
+	- Link to library
+
+		$ npm install chokidar --save
+
+	- Create an `./events` directory
+	- Run the script
+	- Touch a file to show change
+
 5. Write data via simulator
+
+		$ bash ../simulate/perform.sh
 
 6. Handle the first simulator data type: station data
 
+	- Add `readEvent` method to `watch.js`
+	- Output to and create `fileRead` method to `watch.js`
+
 7. On file update, write to controller bucket
 
-8. Set up MQTT for state update (real-time GPS)
+	- Create stations in app-scope `stations` bucket (with customIDs)
+		- station1
+		- station2
+		- station3
 
-9. Receive notifications from administrators via MQTT
+	- Add `station.js` file and addEvent data
+	- Include `station.js` requirement in `watch.js`
+	- Add eventType=='station' to `fileRead` method
 
-10. Use server extension to read in data from other sensors. Controller sends data, parsed and updates state of sub-sensors.
+8. Set up MQTT for state update (real-time GPS) https://docs.kii.com/en/guides/thingifsdk/rest/bi_directional_mqtt/mqtt_request/
+
+	- Create push.js file and createInstallation method. Work through each step.
+	- Install mqtt library
+
+		$ cd ./linux
+		$ npm install mqtt --save
+
+	- Add to `push.js`
+	- Create `state.js` file
+	- Add eventType=='state' to `watch.js`
+
+
+9. Use server extension to read in data from other sensors. Controller sends data, parsed and updates state of sub-sensors.
+
+	- Create `../extensions/main.js` method `sensor_reading`
+		- Do it little by little, so you can see how it's put together
+	- Download Kii server extensions
+
+		$ cd ./extensions
+		$ npm install kii-cli --save
+
+	- Deploy using
+
+		$ sh ./extensions/deploy.sh
+
+	- Show the logs in dev portal
+	- Add `sensor.js` file and methods
+	- import `sensor.js` into `watch.js`
+	- Add eventType=='sensor' to `watch.js`
 
 # Android App
 
 # Web Dashboard
 
-# Server Extensions
+- Use ThingIF trigger to call server extension on state change to push to app topic that train has moved
+
+- Controller should receive notifications from administrators via MQTT
