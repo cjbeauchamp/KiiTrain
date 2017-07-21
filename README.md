@@ -74,7 +74,7 @@ You can get the image directly from Chris, or if you are using Raspbian or anoth
 	- Add `watch.js` to main
 	- Link to library
 
-		$ npm install chokidar --save
+			$ npm install chokidar --save
 
 	- Create an `./events` directory
 	- Run the script
@@ -105,8 +105,8 @@ You can get the image directly from Chris, or if you are using Raspbian or anoth
 	- Create push.js file and createInstallation method. Work through each step.
 	- Install mqtt library
 
-		$ cd ./linux
-		$ npm install mqtt --save
+			$ cd ./linux
+			$ npm install mqtt --save
 
 	- Add to `push.js`
 	- Create `state.js` file
@@ -119,12 +119,12 @@ You can get the image directly from Chris, or if you are using Raspbian or anoth
 		- Do it little by little, so you can see how it's put together
 	- Download Kii server extensions
 
-		$ cd ./extensions
-		$ npm install kii-cli --save
+			$ cd ./extensions
+			$ npm install kii-cli --save
 
 	- Deploy using
 
-		$ sh ./extensions/deploy.sh
+			$ sh ./extensions/deploy.sh
 
 	- Show the logs in dev portal
 	- Add `sensor.js` file and methods
