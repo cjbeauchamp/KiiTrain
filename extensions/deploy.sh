@@ -1,5 +1,8 @@
-source ../config.sh
-echo "Deploying server extensions"
+#!/bin/bash
+
+. ../config.sh
+
+echo "Deploying code..."
 
 node node_modules/kii-cli/bin/kii-servercode.js deploy-file \
 	--file main.js \
@@ -8,4 +11,3 @@ node node_modules/kii-cli/bin/kii-servercode.js deploy-file \
 	--app-key ${APP_KEY} \
 	--client-id ${CLIENT_ID} \
 	--client-secret ${CLIENT_SECRET}
-
