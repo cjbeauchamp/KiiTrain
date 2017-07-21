@@ -129,6 +129,32 @@ You can get the image directly from Chris, or if you are using Raspbian or anoth
 
 # Android App
 
+1. Download App from portal
+
+2. Import project into Android Studio
+
+3. Create device (Nexus 5x with play store)
+
+4. Build and run
+
+5. Show that we can create objects, and show the user bucket it goes into.
+
+6. Insert default text into `login.xml`
+
+		android:text="chris"
+
+6. Remove the excess items from the UI and code. Change 'Add Item' to 'Refresh'. Use method
+
+	    public void refreshTrains(View v) {
+	        Log.v(TAG, "Refreshing trains");
+    	}
+
+7. Create server extension `retrieve_main` in `main.js`
+
+8. Execute server extension from Android code on login
+
+
+
 # Web Dashboard
 
 - Use ThingIF trigger to call server extension on state change to push to app topic that train has moved
