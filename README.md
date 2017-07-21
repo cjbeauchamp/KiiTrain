@@ -30,7 +30,7 @@ You can get the image directly from Chris, or if you are using Raspbian or anoth
 
 1. Create a config file from the template. The actual config file is ignored by git for security reasons.
 
-		$ mv config.template.sh config.sh
+		$ cp config.template.sh config.sh
 
 2. Create a Kii Cloud application (recommend Singapore https://api-sg.kii.com)
 
@@ -112,6 +112,11 @@ You can get the image directly from Chris, or if you are using Raspbian or anoth
 9. Use server extension to read in data from other sensors. Controller sends data, parsed and updates state of sub-sensors.
 
 	- Create `../extensions/main.js` method `sensor_reading`
+	- Download Kii server extensions
+
+		$ cd ./extensions
+		$ npm install kii-cli --save
+
 	- Deploy using
 
 		$ sh ./extensions/deploy.sh
