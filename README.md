@@ -30,7 +30,7 @@ You can get the image directly from Chris, or if you are using Raspbian or anoth
 
 0. Clone the git repository
 
-		https://github.com/cjbeauchamp/KiiTrain.git
+		$ git clone https://github.com/cjbeauchamp/KiiTrain.git
 
 1. Create a config file from the template. The actual config file is ignored by git for security reasons.
 
