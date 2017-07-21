@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "../config.sh"
+. ../config.sh
 
 echo "Deploying code..."
 

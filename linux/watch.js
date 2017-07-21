@@ -10,7 +10,6 @@ function fileRead(err, data) {
     console.log("Error reading file: " + err);
   } else {
     var params = JSON.parse(data);
-    console.log(params);
 
     if(params.eventType == 'station') {
       station.addEvent(params.data);

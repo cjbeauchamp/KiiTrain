@@ -112,6 +112,7 @@ You can get the image directly from Chris, or if you are using Raspbian or anoth
 9. Use server extension to read in data from other sensors. Controller sends data, parsed and updates state of sub-sensors.
 
 	- Create `../extensions/main.js` method `sensor_reading`
+		- Do it little by little, so you can see how it's put together
 	- Download Kii server extensions
 
 		$ cd ./extensions
@@ -121,6 +122,7 @@ You can get the image directly from Chris, or if you are using Raspbian or anoth
 
 		$ sh ./extensions/deploy.sh
 
+	- Show the logs in dev portal
 	- Add `sensor.js` file and methods
 	- import `sensor.js` into `watch.js`
 	- Add eventType=='sensor' to `watch.js`
