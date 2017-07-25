@@ -1,12 +1,18 @@
 var chokidar = require('chokidar');
 var fs = require('fs');
 
+var sensor = require('./sensor.js');
+
 function fileRead(err, data) {
   if(err) {
    console.log("Error reading file: " + err);
   } else {
     var params = JSON.parse(data);
-    console.log(JSON.stringify(params));
+
+    if(params.eventType == 'sensor') {
+      sensor.addEvent(params.data);
+    }
+
   }
 }
 
